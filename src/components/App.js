@@ -4,6 +4,12 @@ import "../stylesheets/main.scss";
 // app component
 export default class App extends React.Component {
   // render
+  fetchdata(){
+    fetch('http://activity.cdx.cloud/api/users')
+    .then(function(response) {
+      return response.json();
+    })
+  }
   render() {
     return (
       <div className="container">
@@ -12,3 +18,5 @@ export default class App extends React.Component {
     );
   }
 }
+const app = new App()
+  console.log(app.fetchdata());
