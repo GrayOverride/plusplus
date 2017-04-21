@@ -1,11 +1,16 @@
 export default class UsersApi {
     static getUsers() {
-        return new Promise(resolve => {
-            fetch('http://activity.cdx.cloud/api/users')
-                .then((response) => {
-                    resolve(response.json())
-                })
-        })
+        return fetch(__BASE_URL__ + '/api/users')
+            .then((response) => response.json())
+    }
+
+    static incrementPoints(userId) {
+        return () => {
+            return fetch(__BASE_URL__ + '/api/users/' + userId + '/plusplus', {
+                method: 'PUT'
+            })
+            .then(response => response.json())
+        }
     }
 }
 

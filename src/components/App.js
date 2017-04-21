@@ -21,7 +21,7 @@ export class App extends React.Component {
     return (
       <div>
         <h2>Teleopti-PlusPlus</h2>
-        <UsersList />
+        <UsersList dispatch={this.props.dispatch} />
       </div>
     );
   }

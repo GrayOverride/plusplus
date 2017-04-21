@@ -14,9 +14,11 @@ export class UsersList extends React.Component {
         const users = this.props.users;
             return (
                 <div>
-                    {users.map((user, index) => {
+                    {users
+                        .sort((user1, user2) => user1.name.localeCompare(user2.name))
+                        .map((user, index) => {
                         return (
-                         <UserListElement key={index} user={user} />
+                         <UserListElement key={index} user={user} dispatch={this.props.dispatch} />
                         );
                     })}
                 </div>

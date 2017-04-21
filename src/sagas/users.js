@@ -10,3 +10,12 @@ export function* usersFetchList(action) {
     users: users
   });
 }
+
+export function* usersIncrementPoints(action) {
+  const user = yield call(ApiUsers.incrementPoints(action.userId));
+
+  yield put({
+    type: 'USERS_USER_SAVE',
+    user
+  });
+}

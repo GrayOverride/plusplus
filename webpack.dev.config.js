@@ -16,3 +16,8 @@ module.exports.module.loaders[1] = {
 module.exports.plugins.push(
   new ExtractTextPlugin('../css/main.css')
 );
+module.exports.plugins.push(
+  new webpack.DefinePlugin({
+    __BASE_URL__: JSON.stringify('http://activity.cdx.cloud')
+  })
+)
