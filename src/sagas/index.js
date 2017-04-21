@@ -1,4 +1,10 @@
-// main saga generators
+import { takeLatest } from 'redux-saga';
+import { fork } from 'redux-saga/effects';
+import { usersFetchList } from './users';
+
+//Main saga generator
 export function* sagas() {
-  //yield [];
+  yield [
+    fork(takeLatest, 'usersFetchList', usersFetchList);
+  ];
 }
