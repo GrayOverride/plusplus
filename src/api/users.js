@@ -1,7 +1,7 @@
 export default class UsersApi {
     static getUsers() {
         fetch('http://activity.cdx.cloud/api/users')
-            .then((status) => {
+            .then((response) => {
                 if (response.status >= 200 && response.status < 300) {
                     return Promise.resolve(response)
                 } else {
