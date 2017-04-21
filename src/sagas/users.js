@@ -2,10 +2,12 @@ import { call, put } from 'redux-saga/effects';
 import ApiUsers from '../api/users';
 
 export function* usersFetchList(action) {
-    const users = yield call(ApiUsers.getUsers);
+  // call the api to get the users
+  const users = yield call(ApiUsers.getUsers);
 
-    yield put({
-        type: 'USERS_LIST_SAVE',
-        users: users
-    });
+  // dispatch the success action with the users
+  yield put({
+    type: 'users.fetchListSuccess',
+    users
+  });
 }

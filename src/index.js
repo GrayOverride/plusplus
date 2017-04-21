@@ -2,13 +2,21 @@ import "babel-polyfill";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { store } from "./store.js";
-import { router } from "./router.js";
+import {createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
 
-// render the main component
+import { reducers } from './reducers/index';
+import { sagas } from './sagas/index';
+
+const sagaMiddleware = createSagaMiddleware();
+let middleware = applyMiddleware(sagaMiddleware);
+
+const store = createStore(reducers, middleware);
+sagaMiddleware.run(sagas);
+
 ReactDOM.render(
   <Provider store={store}>
-    {router}
+  <App />
   </Provider>,
   document.getElementById('app')
 );
