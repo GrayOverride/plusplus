@@ -8,18 +8,17 @@ class UsersList extends React.Component {
 
     constructor(props) {
         super(props);
+    }
 
-        console.log('userlist ', this.props)
-        if (this.props.users.length) {
-            this.props.dispatch({
-                type: 'usersFetchList'
-            })
-        }
+    componentWillMount() {
+        this.props.dispatch({
+            type: 'usersFetchList'
+        })
     }
 
     render() {
-        if (this.props.users.length) {
-            console.log(this.state)
+        if (this.props.users.length > 0) {
+            console.log('test')
             return (
                 <div>
                     {this.state.users.forEach((index, user) => {
@@ -38,6 +37,7 @@ class UsersList extends React.Component {
 
 //Export the connected class
 function mapStateToProps(state) {
+    console.log('UserList mapStateToProps ', state)
     return ({
         users: state.users || []
     });

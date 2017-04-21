@@ -5,10 +5,11 @@ export default function users(state = {}, action) {
 }
 
 class reducerClass {
-
   //The user 
   static fetchListSuccess(new_state, action) {
-    new_state.list = action.users;
+    console.log('FetchListSuccess Action', action)
+    new_state.users = action.users;
+    console.log('FetchListSuccess new_state ', new_state);
     return new_state;
   }
 
