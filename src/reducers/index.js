@@ -6,6 +6,7 @@ export const reducers = combineReducers({
 });
 
 export function reducerCall(state, action, reducerClass) {
+  console.log('Reducer call')
   const [, method] = action.type.split('.');
 
   const methods = Object.getOwnPropertyNames(reducerClass).filter(name => {
@@ -14,7 +15,7 @@ export function reducerCall(state, action, reducerClass) {
     }
   });
 
-  if (method.find(x => x == method)) {
+  if (methods.find(x => x == method)) {
     const new_state = cloneObject(state);
 
     return reducerClass[method](new_state, action);

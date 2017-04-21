@@ -9,6 +9,7 @@ class UsersList extends React.Component {
     constructor(props) {
         super(props);
 
+        console.log('userlist ', this.props)
         if (this.props.users.length) {
             this.props.dispatch({
                 type: 'usersFetchList'
