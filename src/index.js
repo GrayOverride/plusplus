@@ -10,13 +10,13 @@ import { sagas } from './sagas/index';
 
 const sagaMiddleware = createSagaMiddleware();
 let middleware = applyMiddleware(sagaMiddleware);
-
 const store = createStore(reducers, middleware);
+
 sagaMiddleware.run(sagas);
 
 ReactDOM.render(
   <Provider store={store}>
-  <App />
+     <App />
   </Provider>,
   document.getElementById('app')
 );

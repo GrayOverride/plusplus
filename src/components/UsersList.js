@@ -1,45 +1,33 @@
 import React from 'react';
-import Users from '../api/users';
 import { connect } from 'react-redux';
 
 import UserListElement from './UserListElement';
 
-class UsersList extends React.Component {
+export class UsersList extends React.Component {
 
     constructor(props) {
         super(props);
     }
 
-    componentWillMount() {
-        this.props.dispatch({
-            type: 'usersFetchList'
-        })
-    }
-
     render() {
-        if (this.props.users.length > 0) {
-            console.log('test')
+        console.log('Render USER LIST with', this.props.users)
+        const users = this.props.users;
             return (
                 <div>
-                    {this.state.users.forEach((index, user) => {
-                        <UserListElement key={index} user={user} />
+                    {users.map((user, index) => {
+                        return (
+                         <UserListElement key={index} user={user} />
+                        );
                     })}
                 </div>
             )
-        } else {
-            return (
-                <h2>Loading users...</h2>
-            )
-        }
     }
-
 }
 
-//Export the connected class
 function mapStateToProps(state) {
     console.log('UserList mapStateToProps ', state)
     return ({
-        users: state.users || []
+        users: state.users
     });
 }
 

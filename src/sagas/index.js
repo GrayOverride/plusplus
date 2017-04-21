@@ -5,6 +5,6 @@ import { usersFetchList } from './users';
 //Main saga generator
 export function* sagas() {
   yield [
-    fork(takeLatest, 'usersFetchList', usersFetchList)
+    fork(takeLatest, 'USERS_FETCH_LIST', usersFetchList)
   ];
 }

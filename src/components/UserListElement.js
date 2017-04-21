@@ -5,7 +5,9 @@ export default class UsersListElement extends React.Component {
   render() {
     const user = this.props.user;
     return (
-      <h2>{user}</h2>
+      <div>
+        <p><b>Name:</b> {user.name} <br /> <b>Team:</b> {user.team} <br /> <b>Points: </b> {user.points}</p>
+      </div>
     )
   }
 }

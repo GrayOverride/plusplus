@@ -1,16 +1,10 @@
-import { reducerCall } from './index';
-
 export default function users(state = {}, action) {
-  return reducerCall(state, action, reducerClass);
-}
+  console.log('reducer user action', action)
+  switch (action.type) {
+    case 'USERS_LIST_SAVE':
+      return action.users;
 
-class reducerClass {
-  //The user 
-  static fetchListSuccess(new_state, action) {
-    console.log('FetchListSuccess Action', action)
-    new_state.users = action.users;
-    console.log('FetchListSuccess new_state ', new_state);
-    return new_state;
+    default: 
+      return state; 
   }
-
 }
